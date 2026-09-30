@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Barang</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>Inventaris Barang</h1>
+        <p>Kelola stok barang</p>
+    </header>
+
+    <main>
+        <!---Dashboard--->
+        <section class="dashboard">
+            <h2>Dasboard</h2>
+            <div class="dasboard-cards">
+                <div class="card">
+                    <h3>Total Produk</h3>
+                    <p id="totalProducts">0</p>
+                </div>
+                <div class="card">
+                    <h3>Total Stok</h3>
+                    <p id="totalStock">0</p>
+                </div>
+                <div class="card">
+                    <h3>Stok Habis</h3>
+                    <p id="emptyStock">0</p>
+                </div>
+                <div class="card">
+                    <h3>Stok Masuk</h3>
+                    <p id="totalStockIn">0</p>
+                </div>
+                <div class="card">
+                    <h3>Stok Keluar</h3>
+                    <p id="totalStockOut">0</p>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Tambah Produk</h2>
+
+            <form id="productForm">
+                <div>
+                    <label for="productName">
+                        Nama Produk
+                    </label>
+                    <input type="text" name="tambah produk" placeholder="Masukan nama produk" id="productName">
+                </div>
+                <div>
+                    <label for="productCategory">
+                        Kategori Produk
+                    </label>
+                    <input type="text" name="kategori produk" placeholder="Masukan kategori produk"
+                        id="productCategory">
+                </div>
+                <div>
+                    <label for="productPrice">
+                        Harga Produk
+                    </label>
+                    <input type="number" placeholder="masukan harga produk" id="productPrice">
+                </div>
+                <div>
+                    <label for="ProductStock">
+                        Stok Produk
+                    </label>
+                    <input type="number" placeholder="Stok Produk" id="productStock">
+                </div>
+                <button type="submit">
+                    Tambah Produk
+                </button>
+            </form>
+        </section>
+
+        <!----SEARCH & FILTER--->
+        <section>
+
+            <h2>Daftar Produk</h2>
+            <input type="text" placeholder="cari produk.." id="searchInput">
+            <select name="cari produk" id="filterStock">
+                <option value="all">
+                    Semua Stok
+                </option>
+                <option value="available">
+                    Stok Tersedia
+                </option>
+                <option value="empty">
+                    Stok Habis
+                </option>
+            </select>
+
+            <select name="urutkan produk" id="sortProduct">
+                <option value="default">
+                    Urutan Default
+                </option>
+                <option value="name-asc">
+                    Nama A-Z
+                </option>
+                <option value="name-desc">
+                    Nama Z-A
+                </option>
+                <option value="stock-asc">
+                    Stok Terkecil
+                </option>
+                <option value="stock-desc">
+                    Stok Terbesar
+                </option>
+                <option value="price-asc">
+                    Harga Termurah
+                </option>
+                <option value="price-desc">
+                    Harga Termahal
+                </option>
+            </select>
+        </section>
+
+        <!---Daftar Produk-->
+        <section>
+            <div id="productList">
+
+            </div>
+        </section>
+
+        <!--Stok masuk & keluar-->
+        <section>
+            <h2>Transaksi Stok</h2>
+            <form id="transactionForm">
+                <div>
+                    <label for="transactionProduct">
+                        Produk
+                    </label>
+                    <select name="selection product" id="transactionProduct">
+                        <option value="">
+                            Pilih Produk
+                        </option>
+                    </select>
+                </div>
+                <div>
+                    <label for="transactionType">
+                        Jenis Transaksi
+                    </label>
+                    <select name="type transactions" id="transactionType">
+                        <option value="in">Stok Masuk</option>
+                        <option value="out">Stok Keluar</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="transactionQuantity">
+                        Jumlah
+                    </label>
+                    <input type="number" id="transactionQuantity" min="1" placeholder="Masukan jumlah">
+                </div>
+                <button type="submit">
+                    Simpan transaksi
+                </button>
+            </form>
+        </section>
+        <section>
+            <h2>Riwayat transaksi</h2>
+            <div id="transactionList"></div>
+        </section>
+
+    </main>
+    </main>
+
+
+    <script type="module" src="js/app.js"></script>
+</body>
+
+</html>
